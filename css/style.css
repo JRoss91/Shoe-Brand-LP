@@ -1,0 +1,259 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+img {
+    width: 100%;
+}
+
+header {
+    height: 100vh;
+}
+
+.hero-img {
+    background: url(/images/shoe1.jpg);
+    background-size: cover;
+    background-position-x: 20%;
+    background-position-y: 20%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    animation: heroLoad 2s forwards;
+}
+
+@keyframes heroLoad {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+h1.logo {
+    color: white;
+    font-size: 1.4rem;
+    padding: 1.2rem;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: white;
+    text-transform: uppercase;
+    z-index: 9;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.main-nav {
+    list-style-type: none;
+    margin-top: 8em;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 0.75em 2.5em;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.main-nav a:hover {
+    background-color: #f3f3f3;
+}
+
+.burger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.5em;
+    width: 2em;
+}
+
+.close {
+    float: right;
+    margin: 1.5em;
+}
+
+.open-nav {
+    transform: translateX(0%);
+}
+
+.main-heading {
+    width: 80%;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    padding-top: 4rem;
+    padding-left: 1.2rem;
+}
+
+.main-description {
+    width: 80%;
+    color: white;
+    font-size: 1.3rem;
+    padding-top: 1.8rem;
+    padding-left: 1.2rem;
+}
+
+.down-arrow {
+    position: absolute;
+    bottom: 2em;
+    left: 1.2rem;
+    stroke: white;
+    animation: bounce 1s alternate-reverse infinite;   
+}
+
+.down-arrow path {
+    fill: white;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(-30px);
+    }
+}
+
+.products {
+    margin: 1.2em;
+    padding-top: 3em;
+}
+
+.heading {
+    padding: 1.2rem 0;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.description {
+    padding-bottom: 1.2rem;
+}
+
+.product-wrapper img {
+    height: 20em;
+    object-fit: cover;
+}
+
+@media screen and (min-width: 960px) {
+    header {
+        margin-left: 4em;
+    }
+    .hero-img {
+        left: unset;
+        top: 0;
+        right: 0;
+        width: 55%;
+        height: 100vh;
+        z-index: -1;
+    }
+    .burger {
+        display: none;
+    }
+    .navbar {
+        position: absolute;
+        display: block;
+        width: auto;
+        height: auto;
+        background: none;
+        text-transform: uppercase;
+        z-index: 9;
+        transform: translateX(0%);
+    }
+    .close{
+        display: none;
+    }   
+    .main-nav {
+        list-style-type: none;
+        margin-top: 0.5em;
+        display: flex;
+    }
+    .main-nav a {
+        text-decoration: none;
+        color: black;
+        display: block;
+        padding: 0.75em 2.5em;
+        font-size: larger;
+        font-weight: bold;
+    }
+    .main-nav a:hover {
+        text-decoration: underline;
+        background: none;
+    }
+    .main-heading {
+        width: 35%;
+        font-size: 3rem;
+        font-weight: 700;
+        color: black;
+        padding-top: 4rem;
+        padding-left: 1.5rem;
+    }
+    .main-description {
+        width: 35%;
+        color: black;
+        font-size: 1.3rem;
+        padding-top: 1.8rem;
+        padding-left: 1.5rem;
+    }
+    h1.logo {
+        color: black;
+        padding-left: 1.5rem;
+    }
+    .logo span {
+        color: red;
+    }
+    .down-arrow {
+        stroke: black;
+        margin-left: 4em;
+    }
+    .down-arrow path {
+        fill: black;
+    }
+    .products {
+        margin: 0 auto;
+    }
+    .product-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3em;
+        margin: 3em 0;
+        
+    }
+    .product-wrapper img {
+        width: 25em;
+        height: 15em;
+    } 
+    .product {
+        width: 25em;
+        justify-self: right;
+    }   
+    .product p {
+        text-align: right;
+        justify-self: right;
+    }
+    .flip {
+        grid-template-areas: "left right";
+    }
+    .flip img {
+        grid-area: left;
+        justify-self: right;
+    }
+    .flip p {
+        text-align: left;
+    }
+    .flip-text {
+        justify-self: left;
+    }
+}
